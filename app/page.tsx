@@ -40,7 +40,7 @@ export default function Home() {
     const res = await fetch("/api/waitlist", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, role }),
+      body: JSON.stringify({ email, role: role.toLowerCase() }),
     });
 
     const data = await res.json();
