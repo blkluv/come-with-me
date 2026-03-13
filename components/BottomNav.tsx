@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 const NAV_ITEMS = [
   {
-    href: "/app",
+    href: "/app/home",
     label: "Home",
     icon: (active: boolean) => (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none">

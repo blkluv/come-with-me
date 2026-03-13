@@ -216,7 +216,7 @@ export default function Home() {
             <div className="flex-1 h-px bg-white/10" />
           </div>
           <Link
-            href="/app"
+            href="/app/home"
             className="w-full border border-white/15 text-white font-jakarta font-semibold text-base py-4 rounded-xl hover:border-white/30 hover:bg-white/5 active:scale-95 transition-all duration-150 text-center"
           >
             Try the Demo →
