@@ -30,28 +30,13 @@ export default function MapView({ onSelectPlace }: Props) {
   if (!token) {
     return (
       <div
-        className="absolute inset-0 bg-[#0d0d0f] flex items-center justify-center"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(123,47,255,0.08) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(123,47,255,0.08) 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-        }}
+        style={{ width: "100vw", height: "100vh" }}
+        className="bg-[#0d0d0f] flex items-center justify-center"
       >
         <div className="flex flex-col items-center gap-3 text-center px-8">
-          <div className="w-14 h-14 rounded-2xl bg-purple/20 border border-purple/30 flex items-center justify-center text-3xl">
-            🗺️
-          </div>
+          <div className="w-14 h-14 rounded-2xl bg-purple/20 border border-purple/30 flex items-center justify-center text-3xl">🗺️</div>
           <p className="font-bricolage font-bold text-white text-lg">Map Preview</p>
-          <p className="text-white/40 font-jakarta text-sm">Add NEXT_PUBLIC_MAPBOX_TOKEN to enable the map</p>
-          <div className="flex gap-3 mt-2">
-            {["🍽️", "☕", "🍸", "🛍️"].map((e, i) => (
-              <div key={i} className="w-10 h-10 rounded-lg bg-purple border-2 border-lime flex items-center justify-center text-base shadow-lg shadow-purple/40">
-                {e}
-              </div>
-            ))}
-          </div>
+          <p className="text-white/40 font-jakarta text-sm">Add NEXT_PUBLIC_MAPBOX_TOKEN to enable</p>
         </div>
       </div>
     );
@@ -60,12 +45,8 @@ export default function MapView({ onSelectPlace }: Props) {
   return (
     <Map
       mapboxAccessToken={token}
-      initialViewState={{
-        longitude: -73.9857,
-        latitude: 40.7484,
-        zoom: 12.5,
-      }}
-      style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
+      initialViewState={{ longitude: -73.9857, latitude: 40.7484, zoom: 12.5 }}
+      style={{ width: "100vw", height: "100vh" }}
       mapStyle="mapbox://styles/mapbox/dark-v11"
       attributionControl={false}
     >
