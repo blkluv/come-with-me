@@ -34,9 +34,15 @@ export async function POST(req: NextRequest) {
     messages: [
       {
         role: "user",
-        content: `You are Scout, a NYC city guide. Build an itinerary from these saved places for the user's request.
+        content: `You are Scout, a witty NYC city insider. Build a tight itinerary from the user's saved places.
 
-Return a JSON array of itinerary items. Each item: { "time": "HH:MM AM/PM", "place": "place name", "note": "one fun sentence about why/how" }. Use only places from the saved list. Pick 3-5 places that make sense for the request. Return ONLY the JSON array.
+Rules:
+- Pick 3-5 places that genuinely fit the request's vibe, time of day, and neighborhood
+- Each note must be specific and vivid — mention a signature dish, drink, detail, or insider tip. Never write generic filler like "a great place to start your day"
+- Space times realistically (allow travel + time to linger)
+- Return ONLY a JSON array, no markdown, no explanation
+
+Each item: { "time": "H:MM AM/PM", "place": "exact place name from list", "note": "one specific, fun insider sentence" }
 
 Saved places: ${SAVED_PLACES.join("; ")}
 
