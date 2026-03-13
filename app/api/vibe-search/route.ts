@@ -42,9 +42,10 @@ ${placesJson}`,
   });
 
   const raw = message.content[0].type === "text" ? message.content[0].text.trim() : "[]";
+  const cleaned = raw.replace(/^```(?:json)?\n?/i, "").replace(/\n?```$/i, "").trim();
   let ids: string[] = [];
   try {
-    ids = JSON.parse(raw);
+    ids = JSON.parse(cleaned);
   } catch {
     ids = ["1", "2", "3"];
   }

@@ -52,9 +52,10 @@ Request: "${request}"`,
   });
 
   const raw = message.content[0].type === "text" ? message.content[0].text.trim() : "[]";
+  const cleaned = raw.replace(/^```(?:json)?\n?/i, "").replace(/\n?```$/i, "").trim();
   let itinerary: { time: string; place: string; note: string }[] = [];
   try {
-    itinerary = JSON.parse(raw);
+    itinerary = JSON.parse(cleaned);
   } catch {
     itinerary = [
       { time: "11:00 AM", place: "Joe Coffee", note: "A great place to start your day." },
